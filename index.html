@@ -6,280 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>معرض الأعمال — وائل زقوت</title>
     <meta name="description" content="معرض أعمال مطوّر الويب وائل زقوت — Laravel, Vue.js, MySQL, HTML, CSS, JS" />
-    <style>
-        :root {
-            --bg: #0f172a;
-            /* slate-900 */
-            --panel: #111827;
-            /* gray-900 */
-            --panel-2: #0b1220;
-            /* deep tint */
-            --text: #e5e7eb;
-            /* gray-200 */
-            --muted: #9ca3af;
-            /* gray-400 */
-            --brand: #60a5fa;
-            /* blue-400 */
-            --accent: #34d399;
-            /* emerald-400 */
-            --chip: #1f2937;
-            /* gray-800 */
-            --border: #1e293b;
-            /* slate-800 */
-            --link: #93c5fd;
-            /* blue-300 */
-            --shadow: 0 10px 30px rgba(0, 0, 0, .35);
-            --radius: 18px;
-        }
-
-        * {
-            box-sizing: border-box
-        }
-
-        html,
-        body {
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, var(--bg), #0b1220 40%, #020617 100%);
-            color: var(--text);
-            font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Cairo, Noto Kufi Arabic, Arial, sans-serif;
-            line-height: 1.6
-        }
-
-        a {
-            color: var(--link);
-            text-decoration: none
-        }
-
-        a:hover {
-            text-decoration: underline
-        }
-
-        .container {
-            max-width: 1100px;
-            margin-inline: auto;
-            padding: 28px 18px
-        }
-
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            backdrop-filter: saturate(120%) blur(8px);
-            background: linear-gradient(to bottom, rgba(2, 6, 23, .75), rgba(2, 6, 23, .35));
-            border-bottom: 1px solid var(--border);
-        }
-
-        .nav {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px
-        }
-
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 700
-        }
-
-        .logo {
-            width: 28px;
-            height: 28px;
-            border-radius: 10px;
-            background: linear-gradient(135deg, var(--brand), var(--accent));
-            display: grid;
-            place-items: center;
-            box-shadow: var(--shadow)
-        }
-
-        .logo svg {
-            width: 16px;
-            height: 16px;
-            color: #0b1220
-        }
-
-        .nav a {
-            color: var(--text);
-            opacity: .8;
-            font-size: 14px;
-            padding: 8px 10px;
-            border-radius: 10px
-        }
-
-        .nav a:hover {
-            opacity: 1;
-            background: rgba(255, 255, 255, .04)
-        }
-
-        .hero {
-            display: grid;
-            grid-template-columns: 1.1fr .9fr;
-            gap: 28px;
-            align-items: center;
-            padding-block: 36px
-        }
-
-        .hero h1 {
-            font-size: clamp(26px, 3.5vw, 42px);
-            margin: 0
-        }
-
-        .hero p {
-            color: var(--muted);
-            margin: 12px 0 0
-        }
-
-        .kpis {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 10px;
-            margin-top: 18px
-        }
-
-        .card {
-            background: linear-gradient(180deg, var(--panel), var(--panel-2));
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow)
-        }
-
-        .card-in {
-            padding: 18px
-        }
-
-        .quick ul {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 8px;
-            margin: 0;
-            padding: 0;
-            list-style: none
-        }
-
-        .chip {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 6px 10px;
-            border-radius: 999px;
-            background: var(--chip);
-            border: 1px solid var(--border);
-            font-size: 12px;
-            color: var(--muted)
-        }
-
-        .btns {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 18px
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 14px;
-            border-radius: 14px;
-            border: 1px solid var(--border);
-            background: #0b1220;
-            color: #dbeafe;
-            font-weight: 600
-        }
-
-        .btn:hover {
-            transform: translateY(-1px);
-            box-shadow: var(--shadow)
-        }
-
-        .btn.ghost {
-            background: transparent;
-            color: var(--text)
-        }
-
-        h2.sec {
-            font-size: clamp(20px, 2.5vw, 30px);
-            margin: 0 0 14px
-        }
-
-        .grid {
-            display: grid;
-            gap: 16px
-        }
-
-        .projects {
-            grid-template-columns: repeat(2, minmax(0, 1fr))
-        }
-
-        .p-head {
-            display: flex;
-            align-items: center;
-            gap: 10px
-        }
-
-        .p-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 10px
-        }
-
-        .p-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-            margin-top: 12px
-        }
-
-        .skills {
-            grid-template-columns: repeat(4, minmax(0, 1fr))
-        }
-
-        .skills ul {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 6px;
-            list-style: none;
-            padding: 0;
-            margin: 10px 0 0
-        }
-
-        .contact {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px
-        }
-
-        .footer {
-            color: #94a3b8;
-            font-size: 14px;
-            padding-block: 24px;
-            text-align: center
-        }
-
-        /* Responsive */
-        @media (max-width: 900px) {
-            .hero {
-                grid-template-columns: 1fr
-            }
-
-            .projects {
-                grid-template-columns: 1fr
-            }
-
-            .skills {
-                grid-template-columns: repeat(2, minmax(0, 1fr))
-            }
-
-            .quick ul {
-                grid-template-columns: 1fr
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -306,38 +33,38 @@
     <!-- Hero -->
     <section class="container hero">
         <div>
-            <h1>مطور ويب متكامل يركز على <span style="color:var(--brand)">Laravel</span> و <span
-                    style="color:var(--accent)">Vue.js</span></h1>
-            <p>أبني تطبيقات ويب نظيفة وسريعة الاستجابة مع اهتمام بالأداء وإمكانية الوصول وتجربة المطور.</p>
-            <div class="btns">
-                <a class="btn" href="#projects">شاهد المشاريع</a>
-                <a class="btn ghost" href="https://github.com/WaelZaqout" target="_blank" rel="noreferrer">GitHub</a>
-            </div>
-
-            <div class="kpis">
-                <div class="card">
-                    <div class="card-in quick">
-                        <h3 style="margin:0 0 10px; font-size:16px">نبذة سريعة</h3>
-                        <ul>
-                            <li><span class="chip">الخلفية: PHP, Laravel, REST APIs</span></li>
-                            <li><span class="chip">الواجهة: HTML5, CSS3, JS/TS, Vue, Pinia, Tailwind</span></li>
-                            <li><span class="chip">قاعدة البيانات: MySQL</span></li>
-                            <li><span class="chip">الأدوات: Git, GitHub, Postman, VS Code</span></li>
-                        </ul>
-                    </div>
+            <h1>مطور ويب متكامل يركز على <span style="color:var(--brand)">Laravel</span>
+                <p>أبني تطبيقات ويب نظيفة وسريعة الاستجابة مع اهتمام بالأداء وإمكانية الوصول وتجربة المطور.</p>
+                <div class="btns">
+                    <a class="btn" href="#projects">شاهد المشاريع</a>
+                    <a class="btn ghost" href="https://github.com/WaelZaqout" target="_blank"
+                        rel="noreferrer">GitHub</a>
                 </div>
-                <div class="card">
-                    <div class="card-in">
-                        <h3 style="margin:0 0 10px; font-size:16px">معلومات التواصل</h3>
-                        <div style="display:grid; gap:6px; font-size:14px; color:var(--muted)">
-                            <div>📧 <a href="mailto:waelzaqout4@gmail.com">waelzaqout4@gmail.com</a></div>
-                            <div>🐱 <a href="https://github.com/WaelZaqout" target="_blank"
-                                    rel="noreferrer">github.com/WaelZaqout</a></div>
-                            <div>📍 غزة — متاح للعمل عن بعد والانتقال</div>
+
+                <div class="kpis">
+                    <div class="card">
+                        <div class="card-in quick">
+                            <h3 style="margin:0 0 10px; font-size:16px">نبذة سريعة</h3>
+                            <ul>
+                                <li><span class="chip">الخلفية: PHP, Laravel, REST APIs</span></li>
+                                <li><span class="chip">الواجهة: HTML5, CSS3, JS/TS, Vue, Pinia, Tailwind</span></li>
+                                <li><span class="chip">قاعدة البيانات: MySQL</span></li>
+                                <li><span class="chip">الأدوات: Git, GitHub, Postman, VS Code</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-in">
+                            <h3 style="margin:0 0 10px; font-size:16px">معلومات التواصل</h3>
+                            <div style="display:grid; gap:6px; font-size:14px; color:var(--muted)">
+                                <div>📧 <a href="mailto:waelzaqout4@gmail.com">waelzaqout4@gmail.com</a></div>
+                                <div>🐱 <a href="https://github.com/WaelZaqout" target="_blank"
+                                        rel="noreferrer">github.com/WaelZaqout</a></div>
+                                <div>📍 غزة — متاح للعمل عن بعد والانتقال</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
 
         <div class="card">
@@ -417,7 +144,25 @@
                     </div>
                 </div>
             </article>
-
+            <!-- Ain Al-Khabar -->
+            <article class="card">
+                <div class="card-in">
+                    <div class="p-head">
+                        <span class="chip">موقع كورسات</span>
+                        <h3 style="margin:0"> منصتي </h3>
+                    </div>
+                    <p style="color:var(--muted); margin:8px 0 0">
+                        منصة تعليمية
+                    </p>
+                    <div class="p-tech">
+                        <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span>
+                    </div>
+                    <div class="p-links">
+                        <a href="https://waelzaqout.github.io/courses" target="_blank" rel="noreferrer">رابط المعاينة
+                            الحية ↗</a>
+                    </div>
+                </div>
+            </article>
             <!-- SkillUp -->
             <article class="card">
                 <div class="card-in">
